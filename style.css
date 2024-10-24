@@ -1,0 +1,225 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.todo-input {
+    display: flex;
+    flex-wrap: wrap;
+    /* Ensures the items don't overflow */
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+    /* Adds gap between input elements */
+}
+
+#new-task,
+#category,
+#deadline,
+#priority,
+#add-task {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#new-task {
+    flex: 3;
+    min-width: 60%;
+    /* Ensures new task input takes up more space */
+}
+
+#category,
+#deadline,
+#priority {
+    flex: 1;
+    min-width: 100px;
+    /* Ensure dropdowns don't shrink too much */
+}
+
+#add-task {
+    flex-basis: 100%;
+    /* Button takes full width when space is tight */
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 12px;
+}
+
+#add-task:hover {
+    background-color: #0056b3;
+}
+
+/* Filter Buttons */
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+}
+
+.filters button:hover {
+    background-color: #ccc;
+}
+
+/* Task List */
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    animation: fadeIn 0.3s;
+}
+
+.task-item .task-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.complete {
+    text-decoration: line-through;
+    color: grey;
+}
+
+/* Buttons inside tasks */
+.delete-task,
+.edit-task {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-task {
+    color: red;
+}
+
+.edit-task {
+    color: blue;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .todo-input {
+        flex-wrap: nowrap;
+    }
+
+    #new-task {
+        flex: 3;
+        min-width: auto;
+    }
+
+    #category,
+    #deadline,
+    #priority {
+        flex: 1;
+        min-width: auto;
+    }
+
+    #add-task {
+        flex: 1;
+        width: auto;
+    }
+
+    .task-item .task-info {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        height: auto;
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .todo-input {
+        flex-direction: column;
+    }
+
+    #new-task,
+    #category,
+    #deadline,
+    #priority {
+        width: 100%;
+    }
+
+    #add-task {
+        width: 100%;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .filters button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
